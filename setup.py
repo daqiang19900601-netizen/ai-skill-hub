@@ -11,7 +11,7 @@ setup(
     description="Cross-AI tool local skill management system",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/ai-skill-hub",
+    url="https://github.com/AoGua_123/ai-skill-hub",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

@@ -25,7 +25,7 @@
 ### 方式一：从源码安装
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-skill-hub.git
+git clone https://github.com/AoGua_123/ai-skill-hub.git
 cd ai-skill-hub
 pip install -r requirements.txt
 pip install -e .
@@ -267,8 +267,8 @@ variables:
 
 ## 📮 反馈
 
-- 有问题？创建 [Issue](https://github.com/YOUR_USERNAME/ai-skill-hub/issues)
-- 有想法？创建 [Discussion](https://github.com/YOUR_USERNAME/ai-skill-hub/discussions)
+- 有问题？创建 [Issue](https://github.com/AoGua_123/ai-skill-hub/issues)
+- 有想法？创建 [Discussion](https://github.com/AoGua_123/ai-skill-hub/discussions)
 
 ---
 
