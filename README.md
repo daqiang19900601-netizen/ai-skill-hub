@@ -1,6 +1,7 @@
 # 🚀 AI Skill Hub
 
-**跨AI工具的本地技能管理系统** - 一套Prompt，随处使用！
+> **Cross-AI-Tool Local Skill Management System** - One Prompt, Everywhere!
+> **跨AI工具的本地技能管理系统** - 一套Prompt，随处使用！
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
@@ -8,7 +9,251 @@
 
 ---
 
-## ✨ 特性
+## English | [中文](#中文)
+
+### ✨ Features
+
+- 🎯 **Cross-Platform** - One Skill works across Claude Code, Cursor, Trae, VS Code Agent, GitHub Copilot, and more
+- 📦 **Local-First** - All data stored locally, zero privacy risk
+- 🔄 **Version Control** - Built-in Git integration, manage your AI prompts like code
+- 📊 **Smart Analytics** - Token counting, complexity assessment, optimization suggestions
+- 🔍 **Full-Text Search** - Quickly find your Skills
+- 🌐 **Community Sharing** - One-click share to GitHub Gist, install Skills from URL
+- 🚀 **CLI-Driven** - Command-line operations, developer-friendly
+
+### 📦 Installation
+
+#### Option 1: From Source
+
+```bash
+git clone https://github.com/daqiang19900601-netizen/ai-skill-hub.git
+cd ai-skill-hub
+pip install -r requirements.txt
+pip install -e .
+```
+
+#### Option 2: Using pip (after release)
+
+```bash
+pip install ai-skill-hub
+```
+
+### 🚀 Quick Start
+
+#### 1. Create Your First Skill
+
+```bash
+skill init -n "python-code-review" -d "Python code review assistant" -t "python,code-review,ai" -a "Your Name"
+```
+
+#### 2. View All Skills
+
+```bash
+skill list
+```
+
+#### 3. Export for a Specific AI Tool
+
+```bash
+skill export python-code-review --tool claude
+skill export python-code-review --tool cursor
+```
+
+#### 4. Analyze Token Usage
+
+```bash
+skill analyze python-code-review
+```
+
+#### 5. Search Skills
+
+```bash
+skill search -q "python"
+```
+
+### 📖 Complete Command Reference
+
+#### Core Commands
+
+| Command | Description | Example |
+|---------|-------------|---------|
+| `skill init` | Create a new Skill | `skill init -n my-skill -d "description" -t "tag1,tag2"` |
+| `skill show` | View Skill details | `skill show my-skill` |
+| `skill list` | List all Skills | `skill list --tag python` |
+| `skill export` | Export a Skill | `skill export my-skill --tool claude` |
+| `skill analyze` | Analyze a Skill | `skill analyze my-skill` |
+| `skill search` | Search Skills | `skill search -q "keyword"` |
+| `skill update` | Update a Skill | `skill update my-skill -d "new description"` |
+| `skill delete` | Delete a Skill | `skill delete my-skill` |
+
+#### Sharing Commands
+
+| Command | Description | Example |
+|---------|-------------|---------|
+| `skill share` | Share to GitHub Gist | `skill share my-skill` |
+| `skill install` | Install from Gist | `skill install https://gist.github.com/xxx` |
+
+#### Other Commands
+
+| Command | Description |
+|---------|-------------|
+| `skill status` | View storage status and statistics |
+| `skill config` | View/set configuration |
+
+### 🔧 Supported AI Tools
+
+| Tool | Export Parameter | Format |
+|------|-----------------|--------|
+| Generic | `--tool generic` | Markdown |
+| Claude Code | `--tool claude` | XML Tag Format |
+| Cursor | `--tool cursor` | Comment Format |
+| Trae | `--tool trae` | Markdown |
+| VS Code Agent | `--tool vscode` | Code Comment Format |
+| GitHub Copilot | `--tool github-copilot` | Comment Format |
+
+### 📁 Project Structure
+
+```
+ai-skill-hub/
+├── ai_skill_hub/
+│   ├── __init__.py          # Package initialization
+│   ├── main.py              # CLI entry and command definitions
+│   ├── storage.py           # Local storage management
+│   ├── exporter.py          # Multi-format exporter
+│   ├── analyzer.py          # Analysis and optimization
+│   ├── git_integration.py   # Git version control
+│   └── sharing.py           # Community sharing
+├── requirements.txt         # Python dependencies
+├── setup.py                 # Installation config
+├── pyproject.toml           # Project metadata
+├── .gitignore               # Git ignore rules
+└── LICENSE                  # MIT License
+```
+
+### 💡 Use Cases
+
+#### Case 1: Multi-Tool User
+
+Using different AI tools for different projects? One Skill, export everywhere!
+
+```bash
+# Create once
+skill init -n "react-component" -d "React component generator"
+
+# Use everywhere
+skill export react-component --tool claude
+skill export react-component --tool cursor
+skill export react-component --tool trae
+```
+
+#### Case 2: Team Collaboration
+
+Share best practices with your team:
+
+```bash
+# Share to Gist
+skill share my-best-practice
+
+# Team members install
+skill install https://gist.github.com/user/abc123
+```
+
+#### Case 3: Version Control
+
+```bash
+# Auto Git commit on every change
+skill update my-skill -d "Updated description"
+# Auto creates commit: "Update skill: my-skill"
+
+# View history
+skill history
+```
+
+#### Case 4: Token Optimization
+
+```bash
+skill analyze my-skill
+# Output: Token count, complexity, optimization suggestions
+```
+
+### 🔐 Environment Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `GITHUB_TOKEN` | GitHub Personal Access Token (for Gist sharing) | Only for sharing |
+
+Get GitHub Token:
+1. Visit https://github.com/settings/tokens
+2. Generate a new token with `gist` scope
+3. Set environment variable: `export GITHUB_TOKEN=your_token_here`
+
+### 🎯 Example Skills
+
+#### Code Review Skill
+
+```yaml
+name: code-reviewer
+description: Professional code review assistant
+tags: [code-review, best-practices, security]
+content: |
+  You are a senior code review expert. Please review the following code:
+
+  1. Code quality and readability
+  2. Potential security vulnerabilities
+  3. Performance optimization suggestions
+  4. Best practices compliance
+
+  Code:
+  {code}
+variables:
+  code: "Code to review"
+```
+
+#### Documentation Generator Skill
+
+```yaml
+name: doc-generator
+description: Auto-generate technical documentation
+tags: [documentation, api, technical]
+content: |
+  Please generate complete technical documentation for the following code, including:
+  - Feature overview
+  - API reference
+  - Usage examples
+  - Important notes
+variables:
+  code: "Code to document"
+  language: "Programming language"
+```
+
+### 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork this repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Create a Pull Request
+
+### 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### 🌟 Star History
+
+If you find this project useful, please give us a ⭐ Star!
+
+### 📮 Feedback
+
+- Questions? Create an [Issue](https://github.com/daqiang19900601-netizen/ai-skill-hub/issues)
+- Ideas? Create a [Discussion](https://github.com/daqiang19900601-netizen/ai-skill-hub/discussions)
+
+---
+
+## 中文
+
+### ✨ 特性
 
 - 🎯 **跨平台兼容** - 一套Prompt/Skill同时支持 Claude Code、Cursor、Trae、VS Code Agent、GitHub Copilot 等
 - 📦 **本地优先** - 所有数据存储在本地，零隐私风险
@@ -18,65 +263,59 @@
 - 🌐 **社区分享** - 一键分享到GitHub Gist，从URL安装他人Skills
 - 🚀 **CLI驱动** - 命令行操作，开发者友好
 
----
+### 📦 安装
 
-## 📦 安装
-
-### 方式一：从源码安装
+#### 方式一：从源码安装
 
 ```bash
-git clone https://github.com/AoGua_123/ai-skill-hub.git
+git clone https://github.com/daqiang19900601-netizen/ai-skill-hub.git
 cd ai-skill-hub
 pip install -r requirements.txt
 pip install -e .
 ```
 
-### 方式二：使用pip（发布后）
+#### 方式二：使用pip（发布后）
 
 ```bash
 pip install ai-skill-hub
 ```
 
----
+### 🚀 快速开始
 
-## 🚀 快速开始
-
-### 1. 创建你的第一个Skill
+#### 1. 创建你的第一个Skill
 
 ```bash
 skill init -n "python-code-review" -d "Python代码审查助手" -t "python,code-review,ai" -a "Your Name"
 ```
 
-### 2. 查看所有Skills
+#### 2. 查看所有Skills
 
 ```bash
 skill list
 ```
 
-### 3. 导出给特定AI工具使用
+#### 3. 导出给特定AI工具使用
 
 ```bash
 skill export python-code-review --tool claude
 skill export python-code-review --tool cursor
 ```
 
-### 4. 分析Skill的Token使用情况
+#### 4. 分析Skill的Token使用情况
 
 ```bash
 skill analyze python-code-review
 ```
 
-### 5. 搜索Skills
+#### 5. 搜索Skills
 
 ```bash
 skill search -q "python"
 ```
 
----
+### 📖 完整命令参考
 
-## 📖 完整命令参考
-
-### 核心命令
+#### 核心命令
 
 | 命令 | 说明 | 示例 |
 |------|------|------|
@@ -89,23 +328,21 @@ skill search -q "python"
 | `skill update` | 更新Skill | `skill update my-skill -d "新描述"` |
 | `skill delete` | 删除Skill | `skill delete my-skill` |
 
-### 分享命令
+#### 分享命令
 
 | 命令 | 说明 | 示例 |
 |------|------|------|
 | `skill share` | 分享到GitHub Gist | `skill share my-skill` |
 | `skill install` | 从Gist安装 | `skill install https://gist.github.com/xxx` |
 
-### 其他命令
+#### 其他命令
 
 | 命令 | 说明 |
 |------|------|
 | `skill status` | 查看存储状态和统计 |
 | `skill config` | 查看/设置配置 |
 
----
-
-## 🔧 支持的AI工具
+### 🔧 支持的AI工具
 
 | 工具 | 导出参数 | 格式 |
 |------|----------|------|
@@ -116,9 +353,7 @@ skill search -q "python"
 | VS Code Agent | `--tool vscode` | 代码注释格式 |
 | GitHub Copilot | `--tool github-copilot` | 注释格式 |
 
----
-
-## 📁 项目结构
+### 📁 项目结构
 
 ```
 ai-skill-hub/
@@ -137,11 +372,9 @@ ai-skill-hub/
 └── LICENSE                  # MIT许可证
 ```
 
----
+### 💡 使用场景
 
-## 💡 使用场景
-
-### 场景一：多工具用户
+#### 场景一：多工具用户
 
 你在不同项目使用不同的AI工具？一套Skill，到处导出！
 
@@ -155,7 +388,7 @@ skill export react-component --tool cursor
 skill export react-component --tool trae
 ```
 
-### 场景二：团队协作
+#### 场景二：团队协作
 
 分享最佳实践给团队：
 
@@ -167,7 +400,7 @@ skill share my-best-practice
 skill install https://gist.github.com/user/abc123
 ```
 
-### 场景三：版本控制
+#### 场景三：版本控制
 
 ```bash
 # 自动Git提交每次修改
@@ -178,16 +411,14 @@ skill update my-skill -d "更新描述"
 skill history
 ```
 
-### 场景四：Token优化
+#### 场景四：Token优化
 
 ```bash
 skill analyze my-skill
 # 输出: Token数、复杂度、优化建议
 ```
 
----
-
-## 🔐 环境变量
+### 🔐 环境变量
 
 | 变量 | 说明 | 必需 |
 |------|------|------|
@@ -198,11 +429,9 @@ skill analyze my-skill
 2. 生成新Token，勾选 `gist` 权限
 3. 设置环境变量：`export GITHUB_TOKEN=your_token_here`
 
----
+### 🎯 示例Skills
 
-## 🎯 示例Skills
-
-### 代码审查Skill
+#### 代码审查Skill
 
 ```yaml
 name: code-reviewer
@@ -210,19 +439,19 @@ description: 专业代码审查助手
 tags: [code-review, best-practices, security]
 content: |
   你是一位资深代码审查专家。请审查以下代码：
-  
+
   1. 代码质量和可读性
   2. 潜在的安全漏洞
   3. 性能优化建议
   4. 最佳实践符合度
-  
+
   代码：
   {code}
 variables:
   code: "待审查的代码"
 ```
 
-### 文档生成Skill
+#### 文档生成Skill
 
 ```yaml
 name: doc-generator
@@ -239,9 +468,7 @@ variables:
   language: "编程语言"
 ```
 
----
-
-## 🤝 贡献
+### 🤝 贡献
 
 欢迎贡献！请遵循以下步骤：
 
@@ -251,24 +478,18 @@ variables:
 4. 推送到分支 (`git push origin feature/amazing-feature`)
 5. 创建 Pull Request
 
----
-
-## 📝 许可证
+### 📝 许可证
 
 本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
 
----
-
-## 🌟 Star History
+### 🌟 Star History
 
 如果你觉得这个项目有用，请给我们一个 ⭐ Star！
 
----
+### 📮 反馈
 
-## 📮 反馈
-
-- 有问题？创建 [Issue](https://github.com/AoGua_123/ai-skill-hub/issues)
-- 有想法？创建 [Discussion](https://github.com/AoGua_123/ai-skill-hub/discussions)
+- 有问题？创建 [Issue](https://github.com/daqiang19900601-netizen/ai-skill-hub/issues)
+- 有想法？创建 [Discussion](https://github.com/daqiang19900601-netizen/ai-skill-hub/discussions)
 
 ---
 
