@@ -1,0 +1,163 @@
+# 📤 GitHub上传教程 - AI Skill Hub
+
+本教程将手把手教你如何把AI Skill Hub项目上传到GitHub。
+
+---
+
+## 前提条件
+
+- 已安装 Git（如未安装，请访问 https://git-scm.com/downloads 下载安装）
+- 已注册 GitHub 账号（如未注册，请访问 https://github.com 注册）
+
+---
+
+## 步骤一：在GitHub上创建仓库
+
+1. 打开浏览器，访问 https://github.com
+2. 登录你的GitHub账号
+3. 点击右上角的 **+** 号，选择 **New repository**
+4. 填写仓库信息：
+   - **Repository name**: `ai-skill-hub`（必须完全一致）
+   - **Description**: `跨AI工具的本地技能管理系统 - 一套Prompt，随处使用！`
+   - 选择 **Public**（公开仓库才能获得Stars）
+   - **不要**勾选 "Initialize this repository with a README"（我们已有README）
+   - **不要**选择 .gitignore 和 License（我们已有）
+5. 点击 **Create repository**
+
+---
+
+## 步骤二：初始化本地Git仓库
+
+打开PowerShell（Windows）或终端，执行以下命令：
+
+```powershell
+# 进入项目目录
+cd "C:\Users\aogua\Documents\ Trae Solo CN\ai-skill-hub"
+
+# 初始化Git仓库
+git init
+
+# 添加所有文件到暂存区
+git add .
+
+# 提交更改
+git commit -m "Initial commit: AI Skill Hub v1.0.0"
+
+# 重命名默认分支为main
+git branch -M main
+```
+
+---
+
+## 步骤三：连接到GitHub仓库
+
+```powershell
+# 添加远程仓库地址（将YOUR_USERNAME替换为你的GitHub用户名）
+git remote add origin https://github.com/YOUR_USERNAME/ai-skill-hub.git
+
+# 推送到GitHub
+git push -u origin main
+```
+
+**重要**: 第一次推送时，会要求你登录GitHub：
+- 如果你没有配置过GitHub凭据，会弹出浏览器让你授权
+- 或者会要求输入用户名和密码（密码需使用Personal Access Token）
+
+---
+
+## 获取Personal Access Token（如需）
+
+如果推送时要求密码，不能使用GitHub登录密码，需要创建Token：
+
+1. 访问 https://github.com/settings/tokens
+2. 点击 **Generate new token** -> **Generate new token (classic)**
+3. 填写：
+   - **Note**: `ai-skill-hub`
+   - **Expiration**: 选择 `No expiration`（或根据需要选择）
+   - 勾选 **repo** 权限（全选）
+4. 点击 **Generate token**
+5. **立即复制**生成的Token（只会显示一次！）
+6. 在Git推送时，用户名填GitHub用户名，密码粘贴这个Token
+
+---
+
+## 步骤四：验证上传成功
+
+1. 刷新你的GitHub仓库页面：https://github.com/YOUR_USERNAME/ai-skill-hub
+2. 你应该看到所有文件已上传
+3. 检查 README.md 是否正确显示在仓库首页
+
+---
+
+## 步骤五：更新README中的占位符
+
+上传后，记得将README.md中的占位符替换为你的信息：
+
+```powershell
+# 将所有 YOUR_USERNAME 替换为你的GitHub用户名
+# 可以使用任何文本编辑器打开 README.md
+```
+
+然后提交更改：
+
+```powershell
+git add README.md
+git commit -m "Update README with correct username"
+git push
+```
+
+---
+
+## 后续维护
+
+### 提交新更改
+
+```powershell
+git add .
+git commit -m "描述你的更改"
+git push
+```
+
+### 查看状态
+
+```powershell
+git status
+```
+
+### 查看历史
+
+```powershell
+git log --oneline
+```
+
+---
+
+## 🎯 获得更多Star的技巧
+
+1. **完善README** - 这是别人看到的第一印象
+2. **添加示例Skills** - 在仓库中包含一些实用的示例
+3. **分享社区** - 在Reddit、Twitter、知乎等平台分享
+4. **持续更新** - 定期添加新功能和改进
+5. **响应Issue** - 积极回应用户反馈
+6. **添加徽章** - 如Build Status、Coverage等
+7. **参与话题** - 使用 trending topics 如 `ai`, `prompt-engineering`, `developer-tools`
+
+---
+
+## 常见问题
+
+**Q: 推送失败，提示 "Permission denied"**
+A: 检查你的GitHub用户名是否正确，以及是否使用了正确的Token
+
+**Q: README在GitHub上显示不正常**
+A: 确保文件名为 `README.md`（大写），且使用Markdown格式
+
+**Q: 如何修改仓库描述？**
+A: 在GitHub仓库页面，点击右上角的齿轮图标（Settings），修改Description
+
+**Q: 上传后如何获取仓库链接？**
+A: 仓库首页的URL就是你的分享链接：https://github.com/YOUR_USERNAME/ai-skill-hub
+
+---
+
+祝你成功获得众多Stars！🌟
